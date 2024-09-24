@@ -44,7 +44,7 @@ public class JWTDemoTest {
     public void testInvalidSignatureJWT() {
         String jwt = JWTDemo.createJWT("123", "https://day2.dev", "example", 10000);
         // Tamper with the JWT to invalidate the signature
-        String tamperedJwt = jwt.substring(0, jwt.length() - 1) + "a";
+        String tamperedJwt = jwt.substring(0, jwt.length() - 1);
         assertThrows(SignatureException.class, () -> JWTDemo.decodeJWT(tamperedJwt));
     }
 
